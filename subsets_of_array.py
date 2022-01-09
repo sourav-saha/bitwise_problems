@@ -25,19 +25,48 @@ Sample Output 0
 82 
 '''
 
-def find_set_bit(n):
-	c = 0
-	while (n!=0):
-		c += 1
-		n = n&(n-1)
-	return c
+from functools import cmp_to_key
 
-def find_bit_num (a, b)->int:
-	return (find_set_bit(a^b))
+def checkBit(n, pos):
+    if (n&(1<<pos) != 0):
+        return True
+    else:
+        return False 
+
+def compare(a, b):
+    str_a = ""
+    for n in a:
+        str_a += str(n)
+    
+    str_b = ""
+    for n in b:
+        str_b += str(n)
+        
+    if str_a > str_b:
+        return 1
+    else:
+        return -1
+
+def print_subset_array(arr, n):
+    res = []
+    for i in range(1, (1<<n)): #pow(2,n)
+        sublist = []
+        for bitPos in range(n):
+            if checkBit(i, bitPos):
+                sublist.append(arr[bitPos])
+        res.append(sublist)
+        res = sorted(res, key=cmp_to_key(compare))
+    return res
 
 if __name__ == "__main__":
-	T = int(input().strip())
-	for ti in range(T):
-		a, b = map(int, input().strip().split(' '))
-		print(find_bit_num(a, b))
+    T = int(input().strip())
+    for ti in range(T):
+        n = int(input().strip())
+        arr = list(map(int, input().strip().split(' ')))
+        res = print_subset_array(sorted(arr), n)
+        for item in res:
+            print(*item)
+        print()
+	
+	
     
