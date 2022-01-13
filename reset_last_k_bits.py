@@ -11,6 +11,8 @@ Input example #1 content_copy
 5 1
 Output example #1 content_copy
 4
+
+https://mentorpick.com/blog/view/61e04cebf122fe0e00b7984e
 '''
 
 def reset_bits(n, k)->int:
