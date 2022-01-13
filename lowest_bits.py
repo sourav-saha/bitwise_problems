@@ -20,6 +20,9 @@ Input example #1 content_copy
 Output example #1 content_copy
 2
 8
+
+Link: https://mentorpick.com/blog/view/61e04669f122fe0e00b7980c
+#Note: my way of solving this is diffrent than in the above link's methods.
 '''
 
 def lowest_bit(n)->int:
